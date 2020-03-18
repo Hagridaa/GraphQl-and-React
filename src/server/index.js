@@ -5,22 +5,38 @@ import cors from 'cors';
 import compress from 'compression';
 import services from './services';
 
+const app = express();
 
 app.use(compress());
 app.use(cors());
 
-const app = express();
-
-app.use(hlmet());
+if(process.env.NODE_ENV === 'development')
+{
+app.use(helmet());
 app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "'unsafe-inline'"],
-        styleSrc: ["'self'", "'unsafe-inline"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", "data:", "*.amazonaws.com"]
     }
 }));
 app.use(helmet.referrerPolicy({ policy: 'same-origin'}));
+}
+
+const serviceNames = Object.keys(services);
+
+    for (let i = 0; i < serviceNames.length; i += 1) {
+        const name = serviceNames[i];
+        if (name === 'graphql') {
+            services[name].applyMiddleware ({ app });
+        }
+
+        else {
+            app.use(`./${name}`, services[name]);
+        }
+    }
+
 
 // app.get('/', function (reg, res, next) {
 
@@ -41,18 +57,6 @@ app.get('/', (reg, res) => {
     res.sendFile(path.join(root, 'dist/client/index.html'));
 });
 
-const serviceNames = Object.keys(services);
-    for (let i = 0; I < serviceNames.length; i += 1) {
-        const name = serviceNames[i];
-        if (name === 'graphql') {
-            services[name].applyMiddleware ({ app });
-        }
-
-        else {
-            app.use('./${name}', services[name]);
-        }
-    }
 
 
-
-app.listen(8000, () => console.log('listening on port 8000!'));
+app.listen(8000, () => console.log('🚀 listening on port 8000!'));
