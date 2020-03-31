@@ -1,4 +1,4 @@
-const posts = [{
+let posts = [{
     id:2,
     text: 'Lorem ipsum',
     user: {
