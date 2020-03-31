@@ -1,8 +1,26 @@
+const posts = [{
+    id:2,
+    text: 'Lorem ipsum',
+    user: {
+        avatar: '',
+        username: 'test user'
+    }
+},
+
+{
+    id: 1,
+    text: 'lorem ipsum',
+    user: {
+        avatar: '',
+        username: 'Test User 2'
+    }
+
+}];
 
 const resolvers = {
     RootQuery: {
         posts(root, args, context) {
-            return[];
+            return posts;
         },
 
         },
