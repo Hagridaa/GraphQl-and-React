@@ -4,7 +4,7 @@ Learning the basic of GraphQl with "Hands on: Full-Stack development with GraphQ
 Making a small app where user can post/edit/delete news.
 
 ## How to run:  
-* to start the frontend type: npm run client
+* to start the frontend type: npm run client:build
 * to start the backend type: npm run server
 
 ## Soon to come: How to run with Docker
