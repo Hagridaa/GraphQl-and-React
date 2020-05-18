@@ -1,0 +1,2 @@
+#tämä jotta kontti käy lataamassa itse tarvittavat riippuvuudet, eikä lataa niitä node_modulesista
+node_modules
