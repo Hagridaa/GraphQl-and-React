@@ -2,7 +2,7 @@
 
 import sequelize, { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('graphbook-dev',  'devuser', 'PASSWORD', {
+const sequelize = new Sequelize('graphbook-dev',  'root', 'root', {
     host: 'localhost',
     dialect: 'mysql',
     operatorsAliases: false,
