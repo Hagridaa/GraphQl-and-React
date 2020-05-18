@@ -7,7 +7,7 @@ Making a small app where user can post/edit/delete news.
 * to start the frontend type: npm run client:build
 * to start the backend type: npm run server
 
-## How to run with Docker
+## How to run without docker-compose
 
 build rakentaa imagen dockerfilen rakennusohjeiden perusteella. Ajetaan aina 
 uudestaan, jos ohjeita muutetaan dockerfilessä.
@@ -28,5 +28,7 @@ if you want to use phpmyadmin to access the database run this:
 docker run --name phpmyadmin -d --link graphbookdb:db -p 8080:80 phpmyadmin/phpmyadmin
 
 
-
+## How to run with docker-compose
 * docker-compose up
+
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
