@@ -1,3 +1,5 @@
+#rakennusohjeet frontille ja bäkkärille
+
 #haetaan pohja image, eli rakennusohjeet joiden päälle rakennetaan oma image
 FROM node:lts
 
