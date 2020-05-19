@@ -1,3 +1,4 @@
+#tämän tiedoston avulla saadaan tietokanta, bäkkäri ja frontti kerralla käyntiin. Tietokanta omassa kontissa, bäkkäri ja front toisessa kontissa
 version: '3'
 services:
     backend:
@@ -8,4 +9,16 @@ services:
       build: "./docker_mysql"
       ports: 
         - "3306:3306"
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      links: 
+        - graphbookdb
+      environment: 
+        PMA_HOST: graphbookdb
+        PMA_PORT: 3306
+        PMA_ARBITARY: 1
+      restart: 
+        always
+      ports: 
+        - "8080:80"
   
