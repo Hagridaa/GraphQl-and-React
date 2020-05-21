@@ -83,13 +83,13 @@ export default function resolver() {
                 });
             },
             postsFeed(root, { page, limit }, context) {
-              var skip = 0;
+              const skip = 0;
             
               if(page && limit) {
                 skip = page * limit;
               }
             
-              var query = {
+              const query = {
                 order: [['createdAt', 'DESC']],
                 offset: skip,
               };
