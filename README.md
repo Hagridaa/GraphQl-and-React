@@ -45,4 +45,6 @@ to undo migration write:
 With sequelize cli we can seed data to the database
  ``sequelize db:seed:all --seeders-path src/server/seeders/ --config src/server/config/index.js``
 
-``sequelize seed:generate --name fake-users --seeder-path src/server/seeders``
+Example commands how to generate seeders data:
+``sequelize seed:generate --name fake-users --seeders-path src/server/seeders``
+``sequelize seed:generate --name fake-chats --seeders-path src/server/seeders``
