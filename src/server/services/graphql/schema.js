@@ -42,11 +42,10 @@ const typeDefinitions = gql`
         users: [Int]
       }
     
-      input MessageInput {
-        text: String!
-        chatId: Int!
-      }
-  
+    input MessageInput {
+    text: String!
+    chatId: Int!
+    }
       
     type RootMutation {
         addPost (
@@ -55,6 +54,9 @@ const typeDefinitions = gql`
         addChat (
         chat: ChatInput!
         ): Chat
+        addMessage (
+            message: MessageInput!
+          ): Message
     }
 
     type RootQuery {
