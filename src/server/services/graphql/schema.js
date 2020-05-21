@@ -28,8 +28,7 @@ const typeDefinitions = gql`
     type RootMutation {
         addPost (
             post: PostInput!
-            user: UserInput!
-        ) : Post
+          ): Post
     }
 
     type RootQuery {
