@@ -29,6 +29,10 @@ const typeDefinitions = gql`
         users: [User]
     }
 
+    type PostFeed {
+        posts: [Post]
+    }
+    
     input PostInput {
         text: String!
     }
@@ -62,7 +66,10 @@ const typeDefinitions = gql`
     type RootQuery {
         posts: [Post]
         chats: [Chat]
-        chat(chatId: Int): Chat    }
+        chat(chatId: Int): Chat
+        postsFeed(page: Int, limit: Int): PostFeed 
+    
+    }
 
     schema {
         query: RootQuery
