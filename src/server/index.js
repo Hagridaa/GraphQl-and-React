@@ -12,22 +12,21 @@ const services = servicesLoader(utils);
 const root = path.join(__dirname, '../../');
 const app = express();
 
-app.use(compress());
-app.use(cors());
 
-if(process.env.NODE_ENV === 'production')
-{
-app.use(helmet());
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", "data:", "*.amazonaws.com"]
-    }
-}));
-app.use(helmet.referrerPolicy({ policy: 'same-origin'}));
+if(process.env.NODE_ENV === 'production') {
+    app.use(helmet());
+    app.use(helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'", 'backend:8000'],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", "data:", "*.amazonaws.com"]
+        }
+    }));
+    app.use(compress());
+    app.use(cors());
 }
+app.use(helmet.referrerPolicy({ policy: 'same-origin' }));
 
 const serviceNames = Object.keys(services);
 

@@ -9,11 +9,14 @@
     "client:build": "webpack --config webpack.client.build.config.js",
     "stats": "webpack --profile --json --config webpack.client.build.config.js > stats.json",
     "analyze": "webpack-bundle-analyzer stats.jsons",
-    "server": "nodemon --exec babel-node --plugins require-context-hook --watch src/server src/server/index.js"
+    "server:build": "webpack --config webpack.server.build.config.js",
+    "server": "nodemon --exec babel-node --plugins require-context-hook --watch src/server src/server/index.js",
+    "server:production": "node dist/server/bundle.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
@@ -34,6 +37,7 @@
     "react-helmet": "^5.2.1",
     "react-infinite-scroller": "^1.2.4",
     "sequelize": "^5.21.7",
+    "webpack-node-externals": "^1.7.2",
     "winston": "^3.2.1"
   },
   "devDependencies": {

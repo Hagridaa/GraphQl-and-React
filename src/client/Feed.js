@@ -66,7 +66,7 @@ export default class Feed extends Component {
             id: this.state.posts.length + 1,
             text: this.state.postContent,
             user: {
-                avatar: '/uploads/avatar3.png',
+                avatar: 'http://localhost:8000/uploads/avatar3.png',
                 username: 'Fake User'
             }
         };
@@ -135,7 +135,7 @@ export default class Feed extends Component {
                                         user: {
                                             __typename: "User",
                                             username: "Loading...",
-                                            avatar: "/public/loading.gif"
+                                            avatar: "http://localhost:8000/public/loading.gif"
                                         }
                                     }
                                 }}>

@@ -5,6 +5,13 @@ services:
       build: .
       ports:
         - "8000:8000"
+    frontend:
+      image: nginx
+      build:
+        context: .
+        dockerfile: Dockerfile.frontend
+      ports:
+        - "8080:80"
     graphbookdb:
       build: "./docker_mysql"
       ports: 
@@ -20,5 +27,5 @@ services:
       restart: 
         always
       ports: 
-        - "8080:80"
+        - "8081:80"
   

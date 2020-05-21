@@ -14,10 +14,10 @@ module.exports = {
       }
     },
     "production": {
-      "host": process.env.host,
-      "username": process.env.username,
-      "password": process.env.password,
-      "database": process.env.database,
+      "host": "graphbookdb",
+      "username": "root",
+      "password": "root",
+      "database": "graphbook_dev",
       "logging": false,
       "dialect": "mysql",
       "operatorsAliases": false,
