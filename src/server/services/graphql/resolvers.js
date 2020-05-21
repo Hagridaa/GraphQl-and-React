@@ -105,8 +105,21 @@ export default function resolver() {
                       });
                     });
                 },
+                addChat(root, { chat }, context) {
+                    logger.log({
+                      level: 'info',
+                      message: 'Message was created',
+                    });
+                    return Chat.create().then((newChat) => {
+                        return Promise.all([
+                            newChat.setUsers(chat.users),
+                        ]).then(() => {
+                            return newChat;
+                        });
+                    });
+                },
         },
-        
+    
     };
 
     return resolvers

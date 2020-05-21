@@ -52,6 +52,9 @@ const typeDefinitions = gql`
         addPost (
             post: PostInput!
           ): Post
+        addChat (
+        chat: ChatInput!
+        ): Chat
     }
 
     type RootQuery {
