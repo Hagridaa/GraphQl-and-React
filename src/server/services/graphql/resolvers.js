@@ -45,6 +45,11 @@ export default function resolver() {
             users(chat, args, context) {
                 return chat.getUsers();
             },
+            lastMessage(chat, args, context) {
+              return chat.getMessages({limit: 1, order: [['id', 'DESC']]}).then((message) => {
+                  return message[0];
+              });
+          },
         },
 
         RootQuery: {
@@ -52,7 +57,7 @@ export default function resolver() {
                 return Post.findAll({order: [['createdAt', 'DESC']]});
             },
             chat(root, { chatId }, context) {
-                return Chat.findById(chatId, {
+                return Chat.findByPk(chatId, {
                   include: [{
                     model: User,
                     required: true,
@@ -83,7 +88,7 @@ export default function resolver() {
                 });
             },
             postsFeed(root, { page, limit }, context) {
-              const skip = 0;
+              let skip = 0;
             
               if(page && limit) {
                 skip = page * limit;

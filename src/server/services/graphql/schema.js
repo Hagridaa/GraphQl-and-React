@@ -12,6 +12,7 @@ const typeDefinitions = gql`
     }
 
     type User {
+        id: Int
         avatar: String
         username: String
     }
@@ -27,6 +28,7 @@ const typeDefinitions = gql`
         id: Int
         messages: [Message]
         users: [User]
+        lastMessage: Message
     }
 
     type PostFeed {
