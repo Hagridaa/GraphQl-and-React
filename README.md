@@ -34,3 +34,15 @@ docker run --name phpmyadmin -d --link graphbookdb:db -p 8080:80 phpmyadmin/phpm
 * docker-compose up
 
 Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+
+## db migrations with sequelize
+``sequelize db:migrate --migrations-path src/server/migrations --config src/server/config/index.js``
+
+to undo migration write:
+``sequelize db:migrate:undo --migrations-path src/server/migrations --config src/server/config/index.js``
+
+## Seeding with sequelize
+With sequelize cli we can seed data to the database
+ ``sequelize db:seed:all --seeders-path src/server/seeders/ --config src/server/config/index.js``
+
+``sequelize seed:generate --name fake-users --seeder-path src/server/seeders``
