@@ -5,6 +5,9 @@ Making a small app where user can post/edit/delete news.
 
 Learning about Docker. I didnt want to install Mysql to my computer so I learned about Docker. When you want to use my app, you dont have to install everything to your computer. You just install Docker and then you can run everything in containers.
 
+Access the frontend:
+http://localhost:8080/
+
 ## Requirements
 * Docker
  or
